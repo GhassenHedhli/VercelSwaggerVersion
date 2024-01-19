@@ -231,7 +231,7 @@ const AddOuvre = async(req,res)=>{
       return res.status(400).json({ error: 'Invalid compositeurs or arrangeurs provided. Provide valid IDs.' });
     }
 
-    const newOeuvre = new Oeuvre({
+    const newOeuvre = new oeuvreModel({
       titre,
       compositeurs,
       arrangeurs,
