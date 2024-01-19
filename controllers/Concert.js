@@ -208,51 +208,51 @@ const ConcertForQR = async (req, res) => {
     res.status(500).send('Internal Server Error');
   }
 };
-const AddOuvre = async(req,res)=>{
-  try {
-    const {
-      titre,
-      compositeurs,
-      arrangeurs,
-      annee,
-      genre,
-      paroles,
-      partition,
-      aPartieChorale,
-      sectionsChorale,
-      choeur,
-    } = req.body;
+// const AddOuvre = async(req,res)=>{
+//   try {
+//     const {
+//       titre,
+//       compositeurs,
+//       arrangeurs,
+//       annee,
+//       genre,
+//       paroles,
+//       partition,
+//       aPartieChorale,
+//       sectionsChorale,
+//       choeur,
+//     } = req.body;
 
-    // Validate if compositeurs and arrangeurs exist
-    const existingCompositeurs = await Compositeur.find({ _id: { $in: compositeurs } });
-    const existingArrangeurs = await Arrangeur.find({ _id: { $in: arrangeurs } });
+//     // Validate if compositeurs and arrangeurs exist
+//     const existingCompositeurs = await Compositeur.find({ _id: { $in: compositeurs } });
+//     const existingArrangeurs = await Arrangeur.find({ _id: { $in: arrangeurs } });
 
-    if (existingCompositeurs.length !== compositeurs.length || existingArrangeurs.length !== arrangeurs.length) {
-      return res.status(400).json({ error: 'Invalid compositeurs or arrangeurs provided. Provide valid IDs.' });
-    }
+//     if (existingCompositeurs.length !== compositeurs.length || existingArrangeurs.length !== arrangeurs.length) {
+//       return res.status(400).json({ error: 'Invalid compositeurs or arrangeurs provided. Provide valid IDs.' });
+//     }
 
-    const newOeuvre = new Oeuvre({
-      titre,
-      compositeurs,
-      arrangeurs,
-      annee,
-      genre,
-      paroles,
-      partition,
-      aPartieChorale,
-      sectionsChorale,
-      choeur,
-    });
+//     const newOeuvre = new Oeuvre({
+//       titre,
+//       compositeurs,
+//       arrangeurs,
+//       annee,
+//       genre,
+//       paroles,
+//       partition,
+//       aPartieChorale,
+//       sectionsChorale,
+//       choeur,
+//     });
 
-    await newOeuvre.save();
+//     await newOeuvre.save();
 
-    return res.status(201).json({ message: 'Oeuvre created successfully.', oeuvre: newOeuvre });
-  } catch (error) {
-    console.error('Error creating oeuvre:', error.message);
-    return res.status(500).json({ error: 'Internal Server Error' });
-  }
-}
+//     return res.status(201).json({ message: 'Oeuvre created successfully.', oeuvre: newOeuvre });
+//   } catch (error) {
+//     console.error('Error creating oeuvre:', error.message);
+//     return res.status(500).json({ error: 'Internal Server Error' });
+//   }
+// }
 module.exports = {
-  ConcertForQR,AddConcert,AddOuvre,FindAllConcerts,FindOneConcert,UpdateConcert,DeleteConcert
+  ConcertForQR,AddConcert,FindAllConcerts,FindOneConcert,UpdateConcert,DeleteConcert
 };
 

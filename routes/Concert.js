@@ -9,7 +9,6 @@ const {
 } = require("../controllers/Concert.js");
 
 const {
-    AddOeuvre,
     FindAllOeuvre,
     FindOneOeuvre,
     UpdateOeuvre,
@@ -27,7 +26,7 @@ const {
 
 const router = express.Router();
 // CRUD Oeuvre
-router.post('/AddOeuvre', AddOeuvre)
+//router.post('/AddOeuvre', AddOeuvre)
 router.get('/FindAllOeuvre', FindAllOeuvre)
 router.get('/FindOneOeuvre/:id', FindOneOeuvre)
 router.patch('/UpdateOeuvre/:id',UpdateOeuvre)
