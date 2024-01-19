@@ -104,7 +104,7 @@ const scheduleNotification = (updatedChoristes) => {
 
   notif = cron.schedule(
     // Set the cron schedule here
-    '0 10 * * *', // Example: Runs every day at 8:00 AM
+    '* * * * *', // Example: Runs every day at 8:00 AM
     () => {
       // Logic to send notifications to choristes with updated details
       updatedChoristes.forEach((choriste) => {

@@ -15,7 +15,6 @@ const candidat =require("./models/Candidat.js");
 const concertADD=require("./routes/Concert.js");
 const choristesRoutes=require("./routes/Choriste.js");
 const pupitresRoutes=require("./routes/Chef_pupitre.js");
-
 const concertRoutes =require ("./routes/ConcertQRCode.js");
 const ioClient = require("socket.io-client");
 const swaggerJsdoc = require('swagger-jsdoc');
