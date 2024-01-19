@@ -45,7 +45,7 @@ router.post('/AddConcert', AddConcert)
 router.get('/FindAllConcerts', FindAllConcerts)
 router.get('/FindOneConcert/:id', FindOneConcert)
 router.patch('/UpdateConcert/:id',UpdateConcert)
-router.delete('/DeleteConcert/:id', DeleteConcert)
+router.delete('/DeleteConcert/:id', DeleteConcert);
 
 
 

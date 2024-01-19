@@ -11,7 +11,7 @@ const repetitionSchema = new mongoose.Schema({
     type: mongoose.Schema.Types.ObjectId,
     ref: Programme, 
     required: true,
-  }, 
+  },
 });
 
 const Repetition = mongoose.model('repetition', repetitionSchema);

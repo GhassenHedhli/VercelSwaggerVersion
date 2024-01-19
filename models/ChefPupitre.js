@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 const personModel = require("./Personne.js");
 
- // Ensure that choristeModel is imported
+ // Ensure that choristeModel is importe
 
 
 const chefpupitreSchema = new mongoose.Schema({
