@@ -3,4 +3,4 @@ node_modules
 .vscode
 /private
 /logs
-!controllers/Oeuvre.js
+../controllers/Oeuvre.js
