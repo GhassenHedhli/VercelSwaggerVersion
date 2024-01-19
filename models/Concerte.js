@@ -14,5 +14,5 @@ const concertSchema =mongoose.Schema({
         default: Date.now,
       },
 });
-const concertModel = mongoose.model("Concert",concertSchema)
+const concertModel = mongoose.model("Concerte",concertSchema)
 module.exports = concertModel;

@@ -7,7 +7,7 @@ const sendMail= require("../controllers/Sendmail.js");
 const addChoristeResponse = async (req, res) => {
   try {
     const { choristeId, concertId, confirmation, ...additionalData } = req.body;
-
+    
     // Check if choriste and concert IDs are valid
     const isValidChoriste = await Choriste.exists({ _id: choristeId });
     const isValidConcert = await Concert.exists({ _id: concertId });

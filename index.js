@@ -18,7 +18,8 @@ const pupitresRoutes=require("./routes/Chef_pupitre.js");
 
 const concertRoutes =require ("./routes/ConcertQRCode.js");
 const ioClient = require("socket.io-client");
-
+const swaggerJsdoc = require('swagger-jsdoc');
+const swaggerUi = require('swagger-ui-express');
 const schedule =require("node-schedule");
 dotenv.config();
 const app = express();
@@ -35,6 +36,80 @@ app.use("/admins",adminRoutes);
 app.use("/concertAdd",concertADD);
 app.use("/choristes",choristesRoutes);
 app.use("/pupitres",pupitresRoutes);
+
+/*Swagger API */
+const options={
+  definition:{
+      openapi:"3.0.0",
+      info:
+      {
+          title:"Todos Express API with Swagger",
+          version:"0.1.0",
+          description:"this is an API application",
+          contact:{
+              name:"Hedhli Ghasssen",
+              url:"LIve",
+              email:"ghessenhedhli@gmail.com",
+
+          },
+      },
+      servers:[
+          {
+              url:"http://localhost:3001",
+              description:"Development server"
+          }
+      ],
+      components: {
+          responses: {
+            200: {
+              description: "Success",
+            },
+            400: {
+              description: "Bad request. You may need to verify your information.",
+            },
+            401: {
+              description: "Unauthorized request, you need additional privileges",
+            },
+            403: {
+              description:
+                "Forbidden request, you must login first. See /auth/login",
+            },
+            404: {
+              description: "Object not found",
+            },
+            422: {
+              description:
+                "Unprocessable entry error, the request is valid but the server refused to process it",
+            },
+            500: {
+              description: "Unexpected error, maybe try again later",
+            },
+          },
+    
+          securitySchemes: {
+            bearerAuth: {
+              type: "http",
+              scheme: "bearer",
+              bearerFormat: "JWT",
+            },
+          },
+        },
+        security: [
+          {
+            bearerAuth: [],
+          },
+        ],
+
+  },
+  apis:["./routes/*.js"]
+}
+
+
+const specs = swaggerJsdoc(options);
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(specs, {explorer:true}));
+
+
+
 
 /* MONGOOSE SETUP */
 const PORT = process.env.PORT || 6001;

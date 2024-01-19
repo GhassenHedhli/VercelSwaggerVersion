@@ -1,4 +1,4 @@
-//import Candidat from "../models/Candidat.js";
+
 const Candidat= require("../models/Candidat.js");
 const Audition= require("../models/Audition.js");
 const sendMail= require("../controllers/Sendmail.js");
@@ -106,7 +106,7 @@ const sendMail= require("../controllers/Sendmail.js");
       res.status(500).json({ success: false, error: 'Internal Server Error' });
     }
   };
-  
+
  const showAllAuditions= async(req,res)=>{
   try{
     const allAudition =await Audition.find()
