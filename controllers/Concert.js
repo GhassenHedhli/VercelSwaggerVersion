@@ -1,7 +1,7 @@
 // services/excelService.js
 //const xlsx = require("xlsx");
 const programmeModel = require("../models/Programme.js");
-const oeuvreModel = require("../models/Oeuvre.js");
+const Oeuvre = require('../Controllers/Oeuvre.js');
 const concertModel = require("../models/Concert.js");
 const qrcode =require("qrcode");
 const fs=require("fs");
@@ -231,7 +231,7 @@ const AddOuvre = async(req,res)=>{
       return res.status(400).json({ error: 'Invalid compositeurs or arrangeurs provided. Provide valid IDs.' });
     }
 
-    const newOeuvre = new oeuvreModel({
+    const newOeuvre = new Oeuvre({
       titre,
       compositeurs,
       arrangeurs,
