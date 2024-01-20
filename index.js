@@ -111,6 +111,7 @@ app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(specs, {explorer:true}));
 
 
 /* MONGOOSE SETUP */
+//"mongodb+srv://ghassen:azerty@cluster0.bswshkf.mongodb.net/"
 const PORT = process.env.PORT || 6001;
 mongoose
   .connect(process.env.MONGO_URL, {
