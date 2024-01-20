@@ -1,4 +1,4 @@
-const ReptiotionModel = require("../models/Repitition");
+const ReptiotionModel = require("../models/Repitition.js");
 
 const AddRep = async(req, res) => {
     try { 

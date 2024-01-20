@@ -1,4 +1,4 @@
-const { createCompositeur, getCompositeurById } = require('../models/Compositeur');
+const { createCompositeur, getCompositeurById } = require('../models/Compositeur.js');
 
 const createCompositeurController = async (req, res) => {
   const { nom, prenom } = req.body;

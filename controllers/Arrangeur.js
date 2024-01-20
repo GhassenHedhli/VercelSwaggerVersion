@@ -1,4 +1,4 @@
-const { createArrangeur, getArrangeurById } = require('../models/Arrangeur');
+const { createArrangeur, getArrangeurById } = require('../models/Arrangeur.js');
 
 const createArrangeurController = async (req, res) => {
   const { nom, prenom } = req.body;
