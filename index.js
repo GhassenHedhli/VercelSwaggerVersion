@@ -107,7 +107,9 @@ const options={
 const specs = swaggerJsdoc(options);
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(specs, {explorer:true}));
 
-
+app.get('/', (req, res) => {
+  res.send('Hello, World!');
+});
 
 
 /* MONGOOSE SETUP */
