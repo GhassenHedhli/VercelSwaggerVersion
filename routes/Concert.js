@@ -13,7 +13,7 @@ const {
     FindOneOeuvre,
     UpdateOeuvre,
     DeleteOeuvre
-} = require("../Controllers/Oeuvre.js");
+} = require("../controllers/Oeuvre.js");
 
 const {
     AddProgramme,
