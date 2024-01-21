@@ -15,27 +15,7 @@ const router = express.Router();
  *   description: API for managing Candidats
  */
 router.post("/AddCandidat", AddCandidat);
-/**
- * @swagger
- * paths:
- *   /candidates/AddCandidat:
- *     post:
- *       summary: Add a new Candidat
- *       tags: [Candidats]
- *       requestBody:
- *         required: true
- *         content:
- *           application/json:
- *             schema:
- *               $ref: '#/definitions/Candidat'
- *       responses:
- *         201:
- *           description: Candidat added successfully
- *         400:
- *           description: Bad request. Check the request payload.
- *         500:
- *           description: Internal Server Error
- */
+
 router.get("/getCandidat", GetUser);
 /**
  * @swagger
