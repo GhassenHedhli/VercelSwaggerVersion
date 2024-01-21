@@ -60,6 +60,38 @@ router.post("/AddParticipation",saveParticipationByChefPupitre);
  *         '404':
  *           description: Choriste not found or Invalid choristeId.
  */
+/**
+ * @swagger
+ * components:
+ *   schemas:
+ *     Participation:
+ *       type: object
+ *       properties:
+ *         concertId:
+ *           type: string
+ *           format: uuid
+ *           description: ID of the concert.
+ *         repetitionId:
+ *           type: string
+ *           format: uuid
+ *           description: ID of the repetition.
+ *         choristeId:
+ *           type: string
+ *           format: uuid
+ *           description: ID of the choriste.
+ *         presence:
+ *           type: boolean
+ *           description: Indicates if the choriste is present.
+ *         raison:
+ *           type: string
+ *           description: Reason for absence if the choriste is not present.
+ *       example:
+ *         concertId: "60f8420e314b7d002396f5a3"
+ *         repetitionId: "60f8420e314b7d002396f5a4"
+ *         choristeId: "60f8420e314b7d002396f5a5"
+ *         presence: true
+ *         raison: "Family emergency"
+ */
 
 router.patch("/UpdateChoriste/:id",updateChoristeDetails);
 /**
