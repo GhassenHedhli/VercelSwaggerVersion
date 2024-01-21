@@ -129,11 +129,36 @@ router.post("/sendMailAbscent", sendMailAbscent);
  *         content:
  *           application/json:
  *             schema:
- *               $ref: '#/definitions/AbsenceEmailRequest'
+ *               type: object
+ *               properties:
+ *                 sendMailType:
+ *                   type: string
+ *                   description: Type of mail to be sent
+ *                 emailList:
+ *                   type: array
+ *                   items:
+ *                     type: string
+ *                   description: List of email addresses
+ *                 debutheure:
+ *                   type: number
+ *                   description: Start hour for auditions
+ *                 finheure:
+ *                   type: number
+ *                   description: End hour for auditions
+ *                 duration:
+ *                   type: number
+ *                   description: Duration of each audition
+ *               example:
+ *                 sendMailType: "FirstAbsent"
+ *                 emailList: ["email1@example.com", "email2@example.com"]
+ *                 debutheure: 10
+ *                 finheure: 16
+ *                 duration: 1
  *       responses:
  *         200:
  *           description: Audition and email associations created successfully
  *         500:
  *           description: Internal Server Error
  */
+
 module.exports = router;

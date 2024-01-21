@@ -39,26 +39,28 @@ const router = express.Router();
 router.post("/AddParticipation",saveParticipationByChefPupitre);
 /**
  * @swagger
- * /Chefpupitre/AddParticipation:
- *   post:
- *     summary: Add Participation
- *     tags:
- *       - Chefpupitre
- *     requestBody:
- *       description: Participation data to add
- *       required: true
- *       content:
- *         application/json:
- *           schema:
- *             $ref: '#/components/schemas/Participation'
- *     responses:
- *       '201':
- *         description: Participation saved successfully.
- *       '400':
- *         description: Bad Request. Provide either concertId or repetitionId.
- *       '404':
- *         description: Choriste not found or Invalid choristeId.
+ * paths:
+ *   /Chefpupitre/AddParticipation:
+ *     post:
+ *       summary: Add Participation
+ *       tags:
+ *         - Chefpupitre
+ *       requestBody:
+ *         description: Participation data to add
+ *         required: true
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/Participation'
+ *       responses:
+ *         '201':
+ *           description: Participation saved successfully.
+ *         '400':
+ *           description: Bad Request. Provide either concertId or repetitionId.
+ *         '404':
+ *           description: Choriste not found or Invalid choristeId.
  */
+
 router.patch("/UpdateChoriste/:id",updateChoristeDetails);
 /**
  * @swagger
@@ -81,9 +83,11 @@ router.patch("/UpdateChoriste/:id",updateChoristeDetails);
  *         application/json:
  *           schema:
  *             $ref: '#/components/schemas/ChoristeUpdate'
+ *           example:
+ *             statut:junior
  *     responses:
  *       '200':
- *         description: Choriste statuts updated successfully.
+ *         description: Choriste details updated successfully.
  *       '404':
  *         description: Choriste not found or No choristes found.
  *       '500':
