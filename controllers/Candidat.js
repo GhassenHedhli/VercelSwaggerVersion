@@ -17,16 +17,20 @@ const sendMail= require("../controllers/Sendmail.js");
       query.lastname = { $regex: new RegExp(lastname), $options: "i" };
     }
 
+    const parsedPage = parseInt(page);
+    const parsedLimit = parseInt(limit);
+
     const candidates = await Candidat.find(query)
-      .limit(parseInt(limit))
-      .skip((parseInt(page) - 1) * parseInt(limit));
+      .limit(parsedLimit)
+      .skip((parsedPage - 1) * parsedLimit);
 
     const totalCount = await Candidat.countDocuments(query);
 
-    const totalPages = Math.ceil(totalCount / parseInt(limit));
+    const totalPages = Math.ceil(totalCount / parsedLimit);
 
-    if (parseInt(page) > totalPages || parseInt(page) < 1) {
-      return res.status(400).json({ error: error.message });
+    if (parsedPage > totalPages || parsedPage < 1) {
+      console.log("Total pages:", totalPages);
+      return res.status(400).json({ error: "Invalid page number" });
     }
     res.json({
       candidates,

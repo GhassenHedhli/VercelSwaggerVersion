@@ -174,13 +174,11 @@ const getConcertStatistics = async (req, res) => {
     const attendedChoristes = await Participation.countDocuments({
       theme: 'Concert',
       presence: true,
-      'repetition.programme_concert': concertId,
     });
 
     const absentChoristes = await Participation.countDocuments({
       theme: 'Concert',
       presence: false,
-      'repetition.programme_concert': concertId,
     });
 
     return res.json({
